@@ -1,0 +1,13 @@
+import * as Location from 'expo-location';
+
+export type Coordinates = { latitude: number; longitude: number };
+
+export async function getDeviceCoordinates(): Promise<Coordinates> {
+  const permission = await Location.requestForegroundPermissionsAsync();
+  if (!permission.granted) throw new Error('Location permission is needed to search nearby farms.');
+  const position = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
+  return {
+    latitude: position.coords.latitude,
+    longitude: position.coords.longitude,
+  };
+}
