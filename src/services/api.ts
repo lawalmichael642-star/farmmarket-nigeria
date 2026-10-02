@@ -15,7 +15,7 @@ function getDevelopmentBaseUrl() {
   return `http://${hostname}:5000/api`;
 }
 
-const configuredBaseUrl = process.env.EXPO_PUBLIC_API_URL?.trim().replace(/\/+$/, '');
+const configuredBaseUrl = (process.env.EXPO_PUBLIC_API_URL || Constants.expoConfig?.extra?.apiUrl)?.trim().replace(/\/+$/, '');
 export const API_BASE_URL = configuredBaseUrl || (__DEV__ ? getDevelopmentBaseUrl() : '');
 
 export class ApiError extends Error {

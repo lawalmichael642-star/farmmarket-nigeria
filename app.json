@@ -50,6 +50,7 @@
     },
     "extra": {
       "router": {},
+      "apiUrl": "https://farmmarket-api.onrender.com/api",
       "eas": {
         "projectId": "aabafc82-a88f-43da-ac86-f6204abd7e17"
       }
